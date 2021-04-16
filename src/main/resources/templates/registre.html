@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Register bàsic</title>
+</head>
+<body>
+<h1>Register</h1>
+<form th:action="@{/registre}" th:object="${userForm}" method="post">
+    <div><label> Nom Usuari : <input type="text" name="username" th:field="*{username}" required/> </label></div>
+    <div><label> Password: <input type="password" name="password" th:field="*{password}" required/> </label></div>
+    <div><input type="submit" value="Register"/></div>
+</form>
+<div th:if="${exist}" style="color: red">
+    El usuario ya existe
+</div>
+
+<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+    <input type="submit" value="Logout"/>
+</form>
+<a href="javascript:document.logoutForm.submit()">Logout</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Login bàsic</title>
+</head>
+<body>
+
+<div th:if="${param.logout}">
+    T'has desconnectat
+</div>
+<h1>Log in</h1>
+<form th:action="@{/login}" method="post">
+    <div><label> Nom Usuari : <input type="text" name="username" required/> </label></div>
+    <div><label> Password: <input type="password" name="password" required/> </label></div>
+    <div><input type="submit" value="Entrar (Sign in)"/></div>
+</form>
+<div th:if="${param.error}" style="color: red">
+    Usuari i/o password incorrectes
+</div>
+<a href="/registre">Registrar-se </a><br/>
+<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+    <input type="submit" value="Logout" />
+</form>
+<a href="javascript:document.logoutForm.submit()">Logout</a>
+</body>
+</html>

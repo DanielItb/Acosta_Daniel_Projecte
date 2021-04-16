@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de autores</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<body class="container-fluid">
+<h1 class="h1">Autores</h1>
+<table class="table table-dark">
+  <thead>
+  <tr>
+    <th><a th:href="@{/tablaautor/byid}">ID Autor (Ordenar orde ascendente)</a></th>
+    <th><a th:href="@{/tablaautor/byname}">Nombre (Ordenar alfabéticamente)</a></th>
+    <th>Dirección</th>
+    <th>Libros</th>
+    <th>Eliminar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="autor : ${listaAutores}">
+    <td th:text="${autor.idAutor}"></td>
+    <td th:text="${autor.nombre}"></td>
+    <td th:text="${autor.direccion}"></td>
+    <td><a th:href="@{/tablaautor/view/{id}(id=${autor.idAutor})}">Ver libros</a> </td>
+    <td><a th:href="@{/tablaautor/eliminar(id=${autor.idAutor})}">Eliminar</a> </td><br/>
+  </tr>
+  </tbody>
+</table>
+<form th:action="@{/logout}" method="post">
+  <input type="submit" value="Sortir (Sign Out)"/>
+</form>
+
+<form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+  <input type="submit" value="Logout" />
+</form>
+
+<a href="javascript:document.logoutForm.submit()">Logout</a>
+<div th:if="${param.logout}" style="color: red">
+  T'has desconnectat
+</div>
+<a href="/">Inicio </a>
+
+</body>
+</html>
