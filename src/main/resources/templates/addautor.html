@@ -9,11 +9,11 @@
 <h1 th:text="'Añadir autor'"></h1>
 <div class="col-lg-4">
     <form method="post" action="#" th:action="@{/nuevoautor/submit}" th:object="${autorForm}">
-        Nombre <input type="text" id="nombre" placeholder="Ej: Paco" th:field="*{nombre}" class="form-control">
+        Nombre <input type="text" id="nombre" placeholder="Ej: Paco" th:field="*{nombre}" class="form-control" required>
         <div th:object="${direccionForm}">
-            Calle <input type="text" id="calle" placeholder="Ej: Calle Mandri 12" th:field="*{calle}" class="form-control">
-            Ciudad <input type="text" id="ciudad" placeholder="Ej: Badajoz" th:field="*{ciudad}" class="form-control">
-            País <input type="text" id="pais" placeholder="Ej: España" th:field="*{pais}" class="form-control"><br/>
+            Calle <input type="text" id="calle" placeholder="Ej: Calle Mandri 12" th:field="*{calle}" class="form-control" required>
+            Ciudad <input type="text" id="ciudad" placeholder="Ej: Badajoz" th:field="*{ciudad}" class="form-control" required>
+            País <input type="text" id="pais" placeholder="Ej: España" th:field="*{pais}" class="form-control" required><br/>
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>

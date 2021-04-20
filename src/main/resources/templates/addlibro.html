@@ -9,7 +9,7 @@
 <h1 th:text="'Añadir libro'" class="h1"></h1>
 <div class="col-lg-4">
   <form method="post" action="#" th:action="@{/nuevolibro/submit}" th:object="${libroForm}" class="form-group">
-    Título <input type="text" id="titulo" placeholder="Título" th:field="*{titulo}" class="form-control"><br/>
+    Título <input type="text" id="titulo" placeholder="Título" th:field="*{titulo}" class="form-control" required><br/>
     <select name="Autores" th:field="*{autor}" class="form-select">
       <option value="">Selecciona autor</option>
       <option th:each="autor: ${autores}" th:value="${autor.idAutor}" th:text="${autor.nombre}"></option>
