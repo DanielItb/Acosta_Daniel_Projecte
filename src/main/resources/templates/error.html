@@ -5,7 +5,11 @@
     <title>Error</title>
 </head>
 <body>
-<h1>ERROR! No tienes permiso para acceder a esta función</h1>
+<!--ERROR! No tienes permiso para acceder a esta función-->
+<h1 th:text="${status+' '+error}"></h1>
+<p th:text="${message}"></p>
+<p th:text="${timestamp}"></p>
+
 <a href="/">Inicio </a><br/>
 </body>
 </html>
